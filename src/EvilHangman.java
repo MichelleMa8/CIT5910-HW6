@@ -45,6 +45,7 @@ public class EvilHangman {
             recordGuess(guess);
         }
         printVictory();
+        inputReader.close();
     }
 
     private char promptForGuess() {
@@ -95,6 +96,8 @@ public class EvilHangman {
                 wordLenMap.put(wordLen, initWords);
             }
         }
+        fileInput.close();
+        fileReader.close();
 
         return wordLenMap;
     }
