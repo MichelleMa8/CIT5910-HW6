@@ -58,7 +58,7 @@ public class EvilSolution {
             }
         }
 
-        assert countMissingChar > this.missingChars: "countMissingChar shouldn't be larger than missingChars";
+        assert countMissingChar <= this.missingChars: "countMissingChar shouldn't be larger than missingChars";
         if (countMissingChar == this.missingChars){
             // guess not hit
             return false;
