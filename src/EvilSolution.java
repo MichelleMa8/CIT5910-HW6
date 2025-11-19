@@ -9,6 +9,18 @@ public class EvilSolution {
     private ArrayList<Character> partialSolution;
     private int missingChars;
 
+    public ArrayList<String> getTargetList() {
+        return targetList;
+    }
+
+    public ArrayList<Character> getPartialSolution() {
+        return partialSolution;
+    }
+
+    public int getMissingChars() {
+        return missingChars;
+    }
+
     public EvilSolution(ArrayList<String> targetList) {
         this.targetList = targetList;
         missingChars = targetList.get(0).length();
