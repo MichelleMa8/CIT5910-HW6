@@ -1,7 +1,4 @@
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class EvilSolution {
 
@@ -21,10 +18,24 @@ public class EvilSolution {
         return missingChars;
     }
 
-    public EvilSolution(ArrayList<String> targetList) {
-        this.targetList = targetList;
-        missingChars = targetList.get(0).length();
-        partialSolution = new ArrayList<>(missingChars);
+    public EvilSolution(ArrayList<String> wordList) {
+        if (wordList == null || wordList.isEmpty()) {
+            throw new IllegalArgumentException("wordList must not be null or empty");
+        }
+
+        Random rand = new Random();
+        String sample = wordList.get(rand.nextInt(wordList.size()));
+        int chosenLen = sample.length();
+
+        this.targetList = new ArrayList<>();
+        for (String w : wordList) {
+            if (w.length() == chosenLen) {
+                this.targetList.add(w);
+            }
+        }
+
+        this.missingChars = chosenLen;
+        this.partialSolution = new ArrayList<>(missingChars);
         for (int i = 0; i < missingChars; i++) {
             partialSolution.add('_');
         }
